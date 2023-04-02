@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Egg Game</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+		body {
+			font-family: 'DotGothic16', sans-serif;
+			background-color: #0F380F;
+			background-image: linear-gradient(#306230 1px, transparent 1px), linear-gradient(90deg, #306230 1px, transparent 1px);
+			background-size: 30px 30px, 30px 30px;
+			background-position: -2px -2px, -2px -2px;
+		}
+
+		#egg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 96px;
+			height: 96px;
+			background: url('https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/egg.png') no-repeat center;
+			background-size: contain;
+			cursor: pointer;
+		}
+
+		#score {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			font-size: 36px;
+			display: flex;
+			align-items: center;
+		}
+
+		#ribbon {
+			margin-left: 10px;
+			width: 40px;
+			height: 40px;
+			background: url('https://raw.githubusercontent.com/msikma/pokesprite/master/misc/ribbon/record-ribbon.png') no-repeat center;
+			background-size: contain;
+		}
+
+		#credits {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			font-size: 18px;
+			text-align: center;
+			color: #888;
+			display: flex;
+			align-items: center;
+		}
+
+		#poke {
+			margin-left: 10px;
+			width: 40px;
+			height: 40px;
+			background: url('https://raw.githubusercontent.com/msikma/pokesprite/master/items/ball/poke.png') no-repeat center;
+			background-size: contain;
+		}
+	</style>
+</head>
+<body>
+	<div id="egg"></div>
+	<div id="score">Score: 0<div id="ribbon"></div></div>
+	<div id="credits">Credits for Pokesprite (by msikma) for the sprites. Credits for Google fonts for the font (DotGothic16).<div id="poke"></div></div>
+	<script>
+		var egg = document.getElementById("egg");
+		var score = document.getElementById("score");
+		var count = 0;
+		
+		egg.onclick = function() {
+			count++;
+			score.innerHTML = "Score: " + count + "<div id='ribbon'></div>";
+			egg.style.left = Math.floor(Math.random() * 80) + "%";
+			egg.style.top = Math.floor(Math.random() * 80) + "%";
+		};
+	</script>
+</body>
+</html>
